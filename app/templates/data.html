@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Dados{% endblock %}
+
+{% block main %}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Processo</th>
+                <th>Risco</th>
+                <th>Lona (m)</th>
+                <th>Endereço</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for occurrency in occurrences %}
+            <tr>
+                <td>{{ occurrency['process'] }}</td>
+                <td>{{ occurrency['risk'] }}</td>
+                <td>{{ occurrency['lona'] }}</td>
+                <td class="address">{{ occurrency['address'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

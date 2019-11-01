@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}Mapa{% endblock %}
+
+{% block main %}
+    <div class="container" id="main">
+        <div id="openWeather">
+            <p style="text-align: center; font-size: 1.5em">CLIMA</p>
+            <ul>
+                {% if code['weather'][0]['main'] == 'Thunderstorm' %}
+                <li>Condição: <span id="condition">Tempestade</span></li>
+                {% elif code['weather'][0]['main'] == 'Clouds' %}
+                <li>Condição: <span id="condition">Nublado</span></li>
+                {% elif code['weather'][0]['main'] == 'Rain' or code['weather'][0]['main'] == 'Drizzle' %}
+                <li>Condição: <span id="condition">Chuvoso</span></li>
+                {% else %}
+                <li>Condição: <span id="condition">Estável</span></li>
+                {% endif %}
+                <li>Temperatura: {{ code['main']['temp'] }}ºC</li>
+                <li>Umidade: {{ code['main']['humidity'] }}%</li>
+                <li>Velocidade do vento: {{ code['wind']['speed'] }}m/s</li>
+            </ul>
+            <p style="text-align: center; font-size: 0.75em">Dados extraídos de <a href='https://openweathermap.org/api' target="_blank">OpenWeather API</a></p>
+        </div>
+        <div id="googleMap"></div>
+    </div>
+
+    <script>
+
+        /* Pass flask variable to js external file
+        Source: https://medium.com/code-with-benefit/pass-variables-from-flask-python-server-to-javascript-files-e3366b947f7c */
+        window.appConfig = {
+
+            // Pass occurrences dict into json file
+            occurrences: {{ occurrences|tojson }}
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ map_key }}&callback=myMap"></script>
+{% endblock %}
