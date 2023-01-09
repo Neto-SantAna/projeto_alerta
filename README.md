@@ -5,5 +5,3 @@ Infelizmente tal cenário não é incomum durante o inverno pernambucano e apesa
 Deste modo o projeto Alerta tem como objetivo alertar as pessoas que estão em área de risco durante chuvas para que possam se abrigar e evitar tragédias. Isso é feito comparando a posição do usuário do aplicativo com as áreas de risco da cidade, obtidas no banco de dados da [Defesa Civil](http://dados.recife.pe.gov.br/organization/secretaria-executiva-de-defesa-civil), em conjunto com a análise meteorológica da API [OpenWeather](https://openweathermap.org/api).<br/>
 Não se pretende resolver todo o problema da moradia em áreas de risco, ou os deslizamentos de terra, mas buscar soluções paleativas que possam salvar a vida das pessoas.<br/>
 O projeto foi desenvolvido para o fechamento do curso de Introdução à Ciência da Computação [CS50x](https://www.edx.org/course/cs50s-introduction-computer-science-harvardx-cs50x) e tem maior potencial em uma aplicação mobile numa possível evolução da idea.
-
-**Veja uma demonstração do projeto em: [Alerta](https://ghastly-plague-78053.herokuapp.com/)**
